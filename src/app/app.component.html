@@ -2,7 +2,10 @@
   <div class="row">
     <div class="col-xl-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
       <form (ngSubmit)="onsubmit()" #f="ngForm">
-        <div id="user-data">
+        <div
+          id="user-data"
+          ngModelGroup="userData"
+        #userData="ngModelGroup">
           <div class="form-group">
             <label for="username">Username</label>
             <input
@@ -13,7 +16,7 @@
               name="username"
               required>
           </div>
-          <button class="btn btn-default" type="button">Suggest an Username</button>
+          <button class="btn btn-primary" type="button">Suggest an Username</button>
           <div class="form-group">
             <label for="email">Mail</label>
             <input
@@ -28,6 +31,7 @@
             <span class="help-block" *ngIf="!email.valid && email.touched">Please enter a valid email!</span>
           </div>
         </div>
+        <p *ngIf="!userData.valid && userData">User data invalid!</p>
         <div class="form-group">
           <label for="secret">Secret Questions</label>
           <select
@@ -44,7 +48,7 @@
             name="QuestionAnswer"
             rows="3"
             class="form-control"
-          [(ngModel)]="answer"></textarea>
+            [(ngModel)]="answer"></textarea>
         </div>
         <p>Your reply: {{answer}}</p>
         <button
