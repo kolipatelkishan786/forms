@@ -24,7 +24,7 @@
               name="email"
               required
               email
-            #email="ngModel">
+              #email="ngModel">
             <span class="help-block" *ngIf="!email.valid && email.touched">Please enter a valid email!</span>
           </div>
         </div>
@@ -39,6 +39,14 @@
             <option value="teacher">Your first teacher?</option>
           </select>
         </div>
+        <div class="form-group">
+          <textarea
+            name="QuestionAnswer"
+            rows="3"
+            class="form-control"
+          [(ngModel)]="answer"></textarea>
+        </div>
+        <p>Your reply: {{answer}}</p>
         <button
           class="btn btn-primary"
           type="submit"
